@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جبهة وادي هور الديمقراطية</title>
+    <!-- Link to Google Fonts for the 'Tajawal' font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Link to the Tailwind CSS CDN. This provides all the styling classes. -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Leaflet CSS for the map styling -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAo9uab9S3x9iBfL70sI0fL2Kz1A0U2C2H2l2l2w=" crossorigin="" />
+    <!-- Font Awesome for social media icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" xintegrity="sha384-H4uE5iIu1I3J+Hj+O8/0a8q6hD4j5L6w4t+f8E4z2c8gK4hD8o5z6tB7e9B8K4h" crossorigin="anonymous">
+    <!-- Link to custom CSS file -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-light-beige min-h-screen flex flex-col custom-bg-light-beige">
+
+    <!-- Header Section -->
+    <header class="p-4 flex items-center justify-between flex-wrap md:flex-nowrap custom-bg-orange" style="margin: 0; padding-bottom: 0; border: none;">
+        <div class="flex items-center space-x-4 space-x-reverse">
+            <div class="w-16 h-16 md:w-24 md:h-24 rounded-full overflow-hidden bg-gray-200 flex items-center justify-center shadow-md">
+                <img src="images/WhatsApp Image 2025-06-28 at 22.28.32_66d64675.jpg" alt="Logo" class="w-full h-full object-cover ">
+        </div>
+        <h1 class="text-xl md:text-3xl lg:text-4xl font-bold text-center flex-grow p-2">
+            جبهة وادي هور الديمقراطية
+        </h1>
+        <div class="flex items-center space-x-4 space-x-reverse">
+            <div class="w-24 h-16 md:w-32 md:h-20 bg-gray-200 flex items-center justify-center rounded-lg shadow-md overflow-hidden">
+                <img src="/images/6b6ebb8a-1df5-4692-aae3-fbe4cd67579c.jpeg" alt="Flag" class="w-full h-full object-cover">
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav class="bg-dark-brown text-white shadow-lg z-10 sticky top-0 custom-bg-dark-brown" style="margin: 0; border: none;">
+        <div class="container mx-auto px-4 py-2 flex justify-between items-center">
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden p-2 hover:bg-gray-700 rounded-full transition-colors duration-200">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+            
+            <!-- Search Icon -->
+            <div class="flex items-center">
+                <a id="search-button" href="#" aria-label="بحث" class="p-2 hover:bg-gray-700 rounded-full transition-colors duration-200">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                </a>
+            </div>
+            
+            <!-- Desktop Menu Items -->
+            <div class="hidden md:flex flex-grow justify-center space-x-4 space-x-reverse text-sm lg:text-lg">
+                <a href="#main-content" class="nav-link py-2 px-4 rounded-md transition-colors duration-200 hover:bg-gray-700 active">الرئيسية</a>
+                <a href="#news-page" class="nav-link py-2 px-4 rounded-md transition-colors duration-200 hover:bg-gray-700">اخبار</a>
+                <a href="#statements-page" class="nav-link py-2 px-4 rounded-md transition-colors duration-200 hover:bg-gray-700">بيانات</a>
+                <a href="#articles-page" class="nav-link py-2 px-4 rounded-md transition-colors duration-200 hover:bg-gray-700">مقالات</a>
+                <a href="#interviews-page" class="nav-link py-2 px-4 rounded-md transition-colors duration-200 hover:bg-gray-700">حوارات</a>
+                <a href="#reports-page" class="nav-link py-2 px-4 rounded-md transition-colors duration-200 hover:bg-gray-700">تقارير</a>
+                <a href="#maps-page" class="nav-link py-2 px-4 rounded-md transition-colors duration-200 hover:bg-gray-700">خرائط</a>
+                <a href="#about-us-page" class="nav-link py-2 px-4 rounded-md transition-colors duration-200 hover:bg-gray-700">من نحن</a>
+                <a href="#media-page" class="nav-link py-2 px-4 rounded-md transition-colors duration-200 hover:bg-gray-700">وسائط</a>
+                <a href="#donations-page" class="nav-link py-2 px-4 rounded-md transition-colors duration-200 hover:bg-gray-700">التبرعات</a>
+                <a href="#events-page" class="nav-link py-2 px-4 rounded-md transition-colors duration-200 hover:bg-gray-700">الفعاليات</a>
+                <div class="relative" id="more-menu-container">
+                    <button id="more-menu-button" class="py-2 px-4 rounded-md hover:bg-gray-700 focus:outline-none">المزيد ▾</button>
+                    <div id="more-menu" class="absolute right-0 mt-2 w-40 bg-white text-gray-800 rounded-md shadow-lg hidden z-20">
+                        <a href="#join-us-page" class="nav-link block px-4 py-2 hover:bg-gray-100">انضم إلينا</a>
+                        <a href="#contact-page" class="nav-link block px-4 py-2 hover:bg-gray-100">إتصل بنا</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden bg-dark-brown custom-bg-dark-brown border-t border-gray-600 hidden">
+            <div class="px-4 py-2 space-y-1">
+                <a href="#main-content" class="nav-link block py-3 px-4 rounded-md transition-colors duration-200 hover:bg-gray-700 active">الرئيسية</a>
+                <a href="#news-page" class="nav-link block py-3 px-4 rounded-md transition-colors duration-200 hover:bg-gray-700">أخبار</a>
+                <a href="#statements-page" class="nav-link block py-3 px-4 rounded-md transition-colors duration-200 hover:bg-gray-700">بيانات</a>
+                <a href="#articles-page" class="nav-link block py-3 px-4 rounded-md transition-colors duration-200 hover:bg-gray-700">مقالات</a>
+                <a href="#interviews-page" class="nav-link block py-3 px-4 rounded-md transition-colors duration-200 hover:bg-gray-700">حوارات</a>
+                <a href="#reports-page" class="nav-link block py-3 px-4 rounded-md transition-colors duration-200 hover:bg-gray-700">تقارير</a>
+                <a href="#maps-page" class="nav-link block py-3 px-4 rounded-md transition-colors duration-200 hover:bg-gray-700">خرائط</a>
+                <a href="#about-us-page" class="nav-link block py-3 px-4 rounded-md transition-colors duration-200 hover:bg-gray-700">من نحن</a>
+                <a href="#media-page" class="nav-link block py-3 px-4 rounded-md transition-colors duration-200 hover:bg-gray-700">وسائط</a>
+                <a href="#donations-page" class="nav-link block py-3 px-4 rounded-md transition-colors duration-200 hover:bg-gray-700">التبرعات</a>
+                <a href="#events-page" class="nav-link block py-3 px-4 rounded-md transition-colors duration-200 hover:bg-gray-700">الفعاليات</a>
+                <a href="#join-us-page" class="nav-link block py-3 px-4 rounded-md transition-colors duration-200 hover:bg-gray-700">انضم إلينا</a>
+                <a href="#contact-page" class="nav-link block py-3 px-4 rounded-md transition-colors duration-200 hover:bg-gray-700">إتصل بنا</a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Events Page Content -->
+    <div id="events-page" class="flex-grow p-6 md:p-8 hidden">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">الفعاليات والأنشطة القادمة</h2>
+            <div id="events-content" class="space-y-6">
+                <!-- Dynamic content will be loaded here from CMS -->
+                <div class="text-center py-12">
+                    <div class="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+                    <p class="text-gray-500 mt-4">جاري تحميل الفعاليات...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Detail Page (generic for read-more) -->
+    <div id="detail-page" class="flex-grow p-4 md:p-8 hidden">
+        <div class="max-w-4xl mx-auto bg-white p-6 rounded-xl shadow-lg">
+            <h2 id="detail-title" class="text-2xl font-bold mb-4 text-right">عنوان المحتوى</h2>
+            <p id="detail-meta" class="text-sm text-gray-500 mb-4 text-right"></p>
+            <div id="detail-body" class="prose prose-sm max-w-none text-right"></div>
+            <div class="text-center mt-6">
+                <a href="#" id="detail-back" class="inline-block bg-blue-600 text-white px-6 py-3 rounded-md font-bold hover:bg-blue-700 transition-colors duration-200 shadow-lg">عودة</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Search Modal -->
+    <div id="search-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-start justify-center pt-24 z-20">
+        <div class="bg-white w-11/12 md:w-2/3 lg:w-1/2 rounded-xl shadow-2xl p-4">
+            <div class="flex items-center mb-3">
+                <input id="search-input" type="text" placeholder="ابحث في الموقع..." class="flex-grow border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 text-right" />
+                <button id="search-close" class="ml-3 text-gray-500 hover:text-gray-700" aria-label="إغلاق">
+                    ✕
+                </button>
+            </div>
+            <div id="search-results" class="max-h-80 overflow-y-auto space-y-2"></div>
+        </div>
+    </div>
+    
+    <!-- Main Content Area - Initially visible -->
+    <main id="main-content" class="flex-grow p-6 md:p-8">
+        <div class="max-w-5xl mx-auto">
+            <!-- Title -->
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-8 text-center">جبهة وادي هور الديمقراطية</h1>
+            
+            <!-- Introduction -->
+            <p class="text-lg text-gray-700 leading-8 mb-8 text-justify">
+                هي حركة ثقافية ثورية ثقافية سياسية سلمية تهدف لإقامة إقليم دار زغاوة (إقليم بيربي) 
+                كمركزية ثقافية و سياسية لشعب الزغاوة في السودان، مستندة على الإرث الحضاري لممالك 
+                الزغاوة قبل الميلاد ومملكة كانم بعد الميلاد، وتتبنى هويتنا الثقافية الخاصة 
+                بنا كقومية لنا لغتنا وهويتنا الشمال إفريقية. مع التأكيد على حق جميع 
+                المكونات الدارفورية في الإقليم باعتبارهم جزء من النسيج الاجتماعي الواسع 
+                على امتداد قرون.
+            </p>
+
+            <!-- Political Vision -->
+            <h2 class="text-2xl font-bold text-gray-800 mb-6 text-right">الرؤية السياسية</h2>
+            <p class="text-gray-700 leading-8 mb-8 text-justify">
+                اننا نسعي لقيام اقليم بيربي في اطار اتحاد الاقاليم السودانية الفدرالية، 
+                اقليم مستقل سياسياً وهوياتياً وله خصوصية لغتنا وهويتنا الشمال إفريقية. 
+                ونرفض تماماً سلب هويتنا الشمال افريقية ووضعنا في هوية دولة عربية تتبع 
+                للجزيرة العربية. هذه الرؤية تعكس صرخة شعب مدرك لواقعه... وعانى ولا يزال 
+                يعاني ويلات العنصرية من دولة الأحادية العرقية العربية والثقافية. 
+                مورس ضده كل صنوف الاقصاء وحرمان حقوق المواطنة، فانسان البيربي ظل منذ 
+                خروج الانجليز يعيش واقعاً استعمارياً بغيضاً آخر يقطع مئات الكيلومترات 
+                متجهاً الي الفاشر فقط لاستخراج بطاقة جنسية، ونساءنا الحُمل والمرضي 
+                يموتون في الطريق متجهين الي الفاشر والخرطوم لأبسط اسباب مرضية كالنزيف 
+                وغيرها بحثاً عن مستشفي تخصصي. وفوق هذا تعرضنا لأسوأ الجرائم في التاريخ 
+                البشري شهد له العالم من تطهير اثني وإبادة جماعية واغتصابات للنساء وتعذيب 
+                المثقفين في المعتقلات ومطاردة التجار في محاوله للقضاء علينا بشكل نهائي. 
+                لذلك نحن الآن لن نعترف بالدستور السوداني ولا أي من الوثائق الدستورية 
+                التي تصدر من السلطات الإنتقالية للسودان والقوي الحزبية الخرطومية ولا 
+                بالمؤتمرات الدستورية، ونعتبر كلها مجرد أساليب واجراءات لاستمرار السيطرة 
+                وبنية الدولة الاستعمارية.
+            </p>
+
+            <!-- Cultural Vision -->
+            <h2 class="text-2xl font-bold text-gray-800 mb-6 text-right">الرؤية الثقافية</h2>
+            <p class="text-gray-700 leading-8 mb-6 text-justify">
+                قبل تحرير الأرض، أول خطوة هي التحرر والاستقلال من الإستعمار الثقافي العربي. 
+                وهذا يتطلب المعرفة الجيدة بأحدي أهم أدوات الدولة السودانية المستعربة في 
+                تسويق التعريب وهي الأحزاب الأيديولوجية التي تتخفي أحياناً باسم الاسلام 
+                وأخرى باليسارية. هؤلاء هم الأخوان المسلمون والسلفيون (بمسمياتهم المختلفة: 
+                وطنيين، شعبيين، طائفيين، وسطيين...) ونظراؤهم من اليسار العربي 
+                (الشيوعيين، البعثيين، الناصريين...). 
+                هذا الاستعمار أخطر حتي من الاستعمار الغربي لأنه استعمار ذهني هوياتي وفكري 
+                ولغوي وأيديولوجي، حيث عن طريقه يتحول انسان وادي هور من انسان شمال إفريقي 
+                جنسياً الي انسان عربي آسيوي، وتتغير هويته ولغته وتفكيره وطموحه ليصبح 
+                انساناً مهزوماً داخلياً جراء هذا الاستعمار العروبي، فيكون لديه قابلية 
+                كبيرة للتبعية، بل أحياناً يكون مهووساً بهوية استعمارية تعمل ضد وجوده 
+                الهوياتي والمادي.
+            </p>
+
+            <p class="text-gray-700 leading-8 mb-6 text-justify">
+                إنّ مجهوداتنا الأساسية ينبغي أن تركز علي وحدة شعب البري لأجل تحرير انسان 
+                وتراب البيربي من دنس الدولة السودانية الاستعمارية، وإعادة هويتنا الشمال 
+                إفريقية استناداً علي الموروث الحضاري العريق لمملكة كانم، وتنظيم تراثنا 
+                ولغتنا، وتطوير ثراءنا الفني وهو الأجمل في كل بلاد السودان.
+            </p>
+
+            <p class="text-gray-700 leading-8 text-justify">
+                إنَّ صورة الدولة السودانية في نظر البري ملطَّخة بالضغينة والسلبية. فهي من 
+                أجل طمس موروثهم الحضاري وإلغاء لغتهم ومحاربة فنونهم وثقافتهم، تمهيداً 
+                لمشروع الاستيطان التوسعي لجامعة الدول العربية في افريقيا. تم شطب تاريخ 
+                الزغاوة وممالكهم التاريخية (كانم) من المناهج التعليمية، ومنعت تراثهم 
+                وفنونهم من المشاركة في المؤسسات الإعلامية. بل لم تكتفِ بذلك، فقسمت الأدوار 
+                لوضع حد نهائي لهم. فتولت مؤسسات الخدمة الوطنية مسألة الاقصاء من الوظائف 
+                ونشر الكراهية عن البري في اوساط الشعوب السودانية، فأصبح المزاج العام 
+                للدولة يبغض الزغاوة لدرجة أن أبناء البري يتعرضون باستمرار للتنمر في 
+                المؤسسات العامة، ويتم عرقلة استخراج شهادات الجنسية، وكثيراً ما يطلق عليهم 
+                "التشاديين". 
+                أما المؤسسات السياسية والأمنية فرسمت الخطط الحربية، فانتهت بحملة وحشية ضدهم 
+                بدأت في ثمانينات القرن الماضي وتوجت بعملية تطهير عرقي وإبادة واسعة في 
+                ألفينيات القرن الحالي. هذه الحملة الوحشية الواسعة خلفت الآلاف من الضحايا 
+                ومئات حالات اغتصاب النساء، وأكثر من مئة وخمسين ألف لاجئ ونازح في جمهورية 
+                تشاد وداخل السودان. تلك هي حصيلة مشروع الاستعمار العروبي التوسعي في السودان 
+                والذي لا يزال مستمراً.
+            </p>
+        </div>
+    </main>
+
+
+
+  <div id="news-page" class="flex-grow p-6 md:p-8 hidden">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">ألاخبار</h2>
+      <div id="news-content" class="space-y-6">
+        <!-- Dynamic content will be loaded here from CMS -->
+        <div class="text-center py-12">
+          <div class="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+          <p class="text-gray-500 mt-4">جاري تحميل الأخبار...</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+    <!-- Statements Page Content -->
+    <div id="statements-page" class="flex-grow p-6 md:p-8 hidden">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center"> بيانات</h2>
+            <div id="statements-content" class="space-y-6">
+                <!-- Dynamic content will be loaded here from CMS -->
+                <div class="text-center py-12">
+                    <div class="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+                    <p class="text-gray-500 mt-4">جاري تحميل البيانات...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Articles Page Content -->
+    <div id="articles-page" class="flex-grow p-6 md:p-8 hidden">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">مقالات</h2>
+            <div id="articles-content" class="space-y-6">
+                <!-- Dynamic content will be loaded here from CMS -->
+                <div class="text-center py-12">
+                    <div class="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+                    <p class="text-gray-500 mt-4">جاري تحميل المقالات...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Us Page Content - NEW -->
+    <div id="about-us-page" class="flex-grow p-4 md:p-8 hidden">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6 border-b-2 border-gray-300 pb-2 text-right">معلومات عنا</h2>
+            
+            <!-- First Official Meeting Section -->
+            <div class="bg-white p-6 rounded-xl shadow-lg mb-8">
+                <h3 class="text-2xl font-bold text-gray-700 mb-4 text-center">أول اجتماع رسمي للهيئة العليا</h3>
+                
+                <p class="text-gray-600 mb-4 leading-relaxed text-right">
+                    في أول اجتماع رسمي للهيئة العليا لجبهة وادي هور الديمقراطية المنعقد في السودان بتاريخ - 12ابريل 2021م لقد تم اجازة مشروع الجبهة متمثلة في إقامة اقليم وادي هور "اقليم بريبي".
+                    ذات خصوصية ثقافية أفريقية وهويه شمال أفريقية في إطار وحدة السودان الكنفدرالية من اجل حفظ الموروث الثقافي والحضاري لشعب الزغاوة وسكان وادي هور (التراث واللغة والأرض )وكخيارا" استراتيجيا" للتنمية عبر مركزية سياسية لبريبي ،وقد تم أيضا اجازة هِيكل تنظيمي مؤقت (الهيئة العليا والسكرتارية التنفيذية ) الي حين قيام مؤتمر عام وتم اختيار الاتي :<br><br>
+                    1. الدكتور احمد ابراهيم سبيل /رئيسا" مؤقتا"<br>
+                    2. باشمهندس /عبد القادر سليمان دفع ا/سكرتيرا للطلاب "مؤقتا".<br>
+                    3. باشمهندس /احمد جماع /سكرتير العلاقات العامة والمنظمات "مؤقتا.<br>
+                    4. أستاذ/عمار ماكن /سكرتيرا للإعلام "مؤقتًا",<br><br>
+                    وتواصلت مشاورات وحوارات مع رئيس الجبهة لاستكمال السكرتارية التنفيذيه فتم تسمية:<br>
+                    - الاستاذ/ عثمان محمد عبداً حامد (خون)/سكرتيرا للمكاتب الخارجية "مؤقتا"،<br>
+                    - باشمهندس /عزالدين ابكر (أنكا) مستشار الجبهة للشؤون السياسية والثقافية.<br><br>
+                    وسوف تتواصل برنامج الحوارات والتفاكر مع أعضاء الجبهة بالداخل والخارج لاستكمال السكرتاريات.<br>
+                    استاذ/عمار ماكن<br>
+                    سكرتير الإعلام<br>
+                    الخرطوم -15ابريل 2021م
+                </p>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-4">
+                    <div class="bg-gray-200 rounded-xl overflow-hidden h-40 flex items-center justify-center">
+                        <img src="https://placehold.co/400x300/cccccc/000000?text=Meeting+Photo+1" alt="صورة من الاجتماع الأول" class="w-full h-full object-cover">
+                    </div>
+                    <div class="bg-gray-200 rounded-xl overflow-hidden h-40 flex items-center justify-center">
+                        <img src="https://placehold.co/400x300/bbbbbb/000000?text=Meeting+Photo+2" alt="صورة من الاجتماع الأول" class="w-full h-full object-cover">
+                    </div>
+                    <div class="bg-gray-200 rounded-xl overflow-hidden h-40 flex items-center justify-center">
+                        <img src="https://placehold.co/400x300/aaaaaa/000000?text=Meeting+Photo+3" alt="صورة من الاجتماع الأول" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Leadership Team Section -->
+            <div class="bg-white p-6 rounded-xl shadow-lg">
+                <h3 class="text-2xl font-bold text-gray-700 mb-4 text-center">رئاسة الجبهة </h3>
+                <p class="text-gray-600 mb-6 text-center">
+                         (الهيئة العليا والسكرتارية التنفيذية) اعضاء الهيكل التنظيمي 
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Leader Card 1 -->
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md">
+                        <div class="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden bg-gray-200">
+                            <img src="https://placehold.co/200x200/9ca3af/000000?text=Photo" alt="صورة د. أحمد إبراهيم سبيل" class="w-full h-full object-cover">
+                        </div>
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">د. أحمد إبراهيم سبيل</h4>
+                        <p class="text-blue-600 font-bold text-sm mb-2">الرئيس المؤقت</p>
+                        <p class="text-gray-600 text-sm">
+                            قائد ذو رؤية وخبرة واسعة في الشؤون السياسية والاجتماعية، يقود الجبهة نحو تحقيق أهدافها السامية.
+                        </p>
+                    </div>
+                    <!-- Leader Card 2 -->
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md">
+                        <div class="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden bg-gray-200">
+                            <img src="https://placehold.co/200x200/b3b3b3/000000?text=Photo" alt="صورة م. عبد القادر سليمان دفع الله" class="w-full h-full object-cover">
+                        </div>
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">م. عبد القادر سليمان دفع الله</h4>
+                        <p class="text-blue-600 font-bold text-sm mb-2">سكرتير الطلاب المؤقت</p>
+                        <p class="text-gray-600 text-sm">
+                            مهندس شاب ملتزم بقضايا الشباب والتعليم، يسعى لتمكين الطلاب وتفعيل دورهم في المجتمع.
+                        </p>
+                    </div>
+                    <!-- Leader Card 3 -->
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md">
+                        <div class="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden bg-gray-200">
+                            <img src="https://placehold.co/200x200/a3a3a3/000000?text=Photo" alt="صورة م. أحمد جماع" class="w-full h-full object-cover">
+                        </div>
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">م. أحمد جماع</h4>
+                        <p class="text-blue-600 font-bold text-sm mb-2">سكرتير العلاقات العامة والمنظمات المؤقت</p>
+                        <p class="text-gray-600 text-sm">
+                            خبير في العلاقات العامة، يعمل على بناء جسور التواصل مع المنظمات المحلية والدولية.
+                        </p>
+                    </div>
+                    <!-- Leader Card 4 -->
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md">
+                        <div class="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden bg-gray-200">
+                            <img src="https://placehold.co/200x200/8f8f8f/000000?text=Photo" alt="صورة أ. عمار ماكن " class="w-full h-full object-cover">
+                        </div>
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">أ. عمار ماكن</h4>
+                        <p class="text-blue-600 font-bold text-sm mb-2">سكرتير الإعلام المؤقت</p>
+                        <p class="text-gray-600 text-sm">
+                            متخصص في الإعلام، يسعى لنشر رسالة الجبهة بوضوح وشفافية إلى أوسع نطاق.
+                        </p>
+                    </div>
+                    <!-- Leader Card 5 -->
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md">
+                        <div class="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden bg-gray-200">
+                            <img src="https://placehold.co/200x200/7a7a7a/000000?text=Photo" alt="صورة أ. عثمان محمد عبداً حامد (خون)" class="w-full h-full object-cover">
+                        </div>
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">أ. عثمان محمد عبداً حامد (خون)</h4>
+                        <p class="text-blue-600 font-bold text-sm mb-2">سكرتير المكاتب الخارجية المؤقت</p>
+                        <p class="text-gray-600 text-sm">
+                            ذو خبرة واسعة في إدارة المكاتب الخارجية، يعمل على تعزيز حضور الجبهة على الساحة الدولية.
+                        </p>
+                    </div>
+                    <!-- Leader Card 6 -->
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md">
+                        <div class="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden bg-gray-200">
+                            <img src="https://placehold.co/200x200/6b7280/000000?text=Photo" alt="صورة م. عزالدين أبكر (أنكا)" class="w-full h-full object-cover">
+                        </div>
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">م. عزالدين أبكر (أنكا)</h4>
+                        <p class="text-blue-600 font-bold text-sm mb-2">مستشار الجبهة للشؤون السياسية والثقافية</p>
+                        <p class="text-gray-600 text-sm">
+                            مستشار استراتيجي يقدم الدعم في صياغة السياسات والرؤى الثقافية للجبهة.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Interviews Page Content -->
+    <div id="interviews-page" class="flex-grow p-6 md:p-8 hidden">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">حوارات</h2>
+            <div id="interviews-content" class="space-y-6">
+                <!-- Dynamic content will be loaded here from CMS -->
+                <div class="text-center py-12">
+                    <div class="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+                    <p class="text-gray-500 mt-4">جاري تحميل الحوارات...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Reports Page Content -->
+    <div id="reports-page" class="flex-grow p-6 md:p-8 hidden">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">تقارير</h2>
+            <div id="reports-content" class="space-y-6">
+                <!-- Dynamic content will be loaded here from CMS -->
+                <div class="text-center py-12">
+                    <div class="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+                    <p class="text-gray-500 mt-4">جاري تحميل التقارير...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Media Page Content -->
+    <div id="media-page" class="flex-grow p-6 md:p-8 hidden">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">وسائط</h2>
+            <div id="media-content" class="space-y-6">
+                <!-- Dynamic content will be loaded here from CMS -->
+                <div class="text-center py-12">
+                    <div class="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+                    <p class="text-gray-500 mt-4">جاري تحميل الوسائط...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Page Content -->
+    <div id="contact-page" class="flex-grow p-4 md:p-8 hidden">
+        <div class="max-w-6xl mx-auto">
+            <!-- Header Section -->
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">معلومات التواصل</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                     للإجابة على استفساراتكم ومساعدتكم. تواصلوا معنا عبر أي من الطرق التالية
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Contact Information -->
+                <div class="space-y-6">
+                    <div class="bg-white p-8 rounded-xl shadow-lg">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6 text-right">معلومات التواصل</h3>
+                        
+                        <!-- Phone -->
+                        <div class="flex flex-row-reverse items-center space-x-4 space-x-reverse mb-6 p-4 bg-gray-50 rounded-lg">
+                            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.158l-2.493 1.87a1.5 1.5 0 00.362 2.982l.555.277a1.5 1.5 0 001.278-.26l1.83-1.83a1 1 0 011.158-.502l4.493 1.498a1 1 0 01.684.948V19a2 2 0 01-2 2h-3.28a1 1 0 01-.948-.684l-1.498-4.493a1 1 0 01.502-1.158l2.493-1.87a1.5 1.5 0 00-.362-2.982l-.555-.277a1.5 1.5 0 00-1.278.26l-1.83 1.83a1 1 0 01-1.158.502l-4.493-1.498A1 1 0 013 5z"></path>
+                                </svg>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-lg font-semibold text-gray-800">الهاتف</p>
+                                <p class="text-gray-600">+249 123 456 789</p>
+                                
+                            </div>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="flex flex-row-reverse items-center space-x-4 space-x-reverse mb-6 p-4 bg-gray-50 rounded-lg">
+                            <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                </svg>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-lg font-semibold text-gray-800">البريد الإلكتروني</p>
+                                <p class="text-gray-600">info@wadihawar.org</p>
+                                
+                            </div>
+                        </div>
+
+                        <!-- Address -->
+                        <div class="flex flex-row-reverse items-start space-x-4 space-x-reverse mb-6 p-4 bg-gray-50 rounded-lg">
+                            <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                </svg>
+                            </div>
+                            
+                        </div>
+
+            
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="bg-white p-8 rounded-xl shadow-lg">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6 text-right">أرسل لنا رسالة</h3>
+                    <form class="space-y-6" onsubmit="handleContactForm(event)">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="flex flex-col items-end">
+                                <label for="firstName" class="text-gray-700 font-medium mb-2">الاسم الأول</label>
+                                <input type="text" id="firstName" name="firstName" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-right" placeholder="الاسم الأول" required>
+                            </div>
+                            <div class="flex flex-col items-end">
+                                <label for="lastName" class="text-gray-700 font-medium mb-2">الاسم الأخير</label>
+                                <input type="text" id="lastName" name="lastName" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-right" placeholder="الاسم الأخير" required>
+                            </div>
+                        </div>
+                        
+                        <div class="flex flex-col items-end">
+                            <label for="email" class="text-gray-700 font-medium mb-2">البريد الإلكتروني</label>
+                            <input type="email" id="email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-right" placeholder="example@email.com" required>
+                        </div>
+                        
+                        <div class="flex flex-col items-end">
+                            <label for="phone" class="text-gray-700 font-medium mb-2">رقم الهاتف (اختياري)</label>
+                            <input type="tel" id="phone" name="phone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-right" placeholder="+249 123 456 789">
+                        </div>
+                        
+                        <div class="flex flex-col items-end">
+                            <label for="subject" class="text-gray-700 font-medium mb-2">الموضوع</label>
+                            <select id="subject" name="subject" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-right" required>
+                                <option value="">اختر الموضوع</option>
+                                <option value="general">استفسار عام</option>
+                                <option value="support">طلب دعم</option>
+                                <option value="media">استفسار إعلامي</option>
+                                <option value="partnership">شراكة</option>
+                                <option value="other">أخرى</option>
+                            </select>
+                        </div>
+                        
+                        <div class="flex flex-col items-end">
+                            <label for="message" class="text-gray-700 font-medium mb-2">الرسالة</label>
+                            <textarea id="message" name="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-right" placeholder="اكتب رسالتك هنا..." required></textarea>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <input type="checkbox" id="privacy" name="privacy" class="ml-3 h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded" required>
+                            <label for="privacy" class="text-sm text-gray-600">
+                                أوافق على <a href="#" class="text-blue-600 hover:underline">سياسة الخصوصية</a> و <a href="#" class="text-blue-600 hover:underline">شروط الاستخدام</a>
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-200 shadow-lg">
+                            إرسال الرسالة
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Join Us Page Content -->
+    <div id="join-us-page" class="flex-grow p-4 md:p-8 hidden">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6 border-b-2 border-gray-300 pb-2 text-center">انضم إلينا</h2>
+            <div class="mb-8 bg-white p-6 rounded-xl shadow-lg">
+                <h3 class="text-xl font-bold text-gray-700 mb-4 text-center">كن عضواً</h3>
+                <p class="text-gray-600 mb-4 text-center">
+                    إذا كنت ترغب في الانضمام إلى جبهتنا كعضو، يرجى ملء النموذج أدناه.
+                </p>
+                <form class="space-y-4">
+                    <div class="flex flex-col items-end">
+                        <label for="member-name" class="text-gray-700 font-medium mb-1">الاسم الكامل</label>
+                        <input type="text" id="member-name" name="memberName" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-right" placeholder="أدخل اسمك الكامل">
+                    </div>
+                    <div class="flex flex-col items-end">
+                        <label for="member-email" class="text-gray-700 font-medium mb-1">البريد الإلكتروني</label>
+                        <input type="email" id="member-email" name="memberEmail" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-right" placeholder="أدخل بريدك الإلكتروني">
+                    </div>
+                    <div class="flex flex-col items-end">
+                        <label for="member-message" class="text-gray-700 font-medium mb-1">رسالتك (اختياري)</label>
+                        <textarea id="member-message" name="memberMessage" rows="4" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-right" placeholder="اكتب أي معلومات إضافية هنا..."></textarea>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="bg-blue-600 text-white px-6 py-3 rounded-md font-bold hover:bg-blue-700 transition-colors duration-200 shadow-lg">إرسال طلب العضوية</button>
+                    </div>
+                </form>
+            </div>
+            <div class="bg-white p-6 rounded-xl shadow-lg">
+                <h3 class="text-xl font-bold text-gray-700 mb-4 text-center">تطوع معنا</h3>
+                <p class="text-gray-600 mb-4 text-center">
+                    إذا كنت مهتماً بالمساهمة بوقتك وجهدك كمتطوع، يرجى ملء هذا النموذج.
+                </p>
+                <form class="space-y-4">
+                    <div class="flex flex-col items-end">
+                        <label for="volunteer-name" class="text-gray-700 font-medium mb-1">الاسم الكامل</label>
+                        <input type="text" id="volunteer-name" name="volunteerName" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-right" placeholder="أدخل اسمك الكامل">
+                    </div>
+                    <div class="flex flex-col items-end">
+                        <label for="volunteer-email" class="text-gray-700 font-medium mb-1">البريد الإلكتروني</label>
+                        <input type="email" id="volunteer-email" name="volunteerEmail" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-right" placeholder="أدخل بريدك الإلكتروني">
+                    </div>
+                    <div class="flex flex-col items-end">
+                        <label for="volunteer-message" class="text-gray-700 font-medium mb-1">مجالات الاهتمام/المهارات</label>
+                        <textarea id="volunteer-message" name="volunteerMessage" rows="4" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-right" placeholder="اذكر المهارات التي تود المساهمة بها..."></textarea>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="bg-blue-600 text-white px-6 py-3 rounded-md font-bold hover:bg-blue-700 transition-colors duration-200 shadow-lg">إرسال طلب التطوع</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Donations Page Content -->
+    <div id="donations-page" class="flex-grow p-4 md:p-8 hidden">
+        <div class="max-w-6xl mx-auto">
+            <!-- Header Section -->
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">الدعم والتبرعات</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                    تبرعاتكم تساعدنا على تحقيق أهدافنا المتمثلة في الاتي
+                </p>
+            </div>
+
+            <!-- Impact Section -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                <div class="bg-white p-6 rounded-xl shadow-lg text-center">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-2">الدعم الإنساني</h3>
+                    <p class="text-gray-600 text-sm">مساعدة المتضررين والنازحين</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg text-center">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-2">التعليم والثقافة</h3>
+                    <p class="text-gray-600 text-sm">حفظ التراث واللغة والثقافة</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg text-center">
+                    <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-2">التمكين السياسي</h3>
+                    <p class="text-gray-600 text-sm">تحقيق الحقوق والعدالة</p>
+                </div>
+            </div>
+
+            <!-- Donation Methods -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Bank Transfer -->
+                <div class="bg-white p-8 rounded-xl shadow-lg">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center ml-4">
+                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800">التحويل المصرفي</h3>
+                    </div>
+                    <p class="text-gray-600 mb-6">يمكنك إرسال تبرعك مباشرة إلى حسابنا المصرفي</p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex flex-row-reverse items-center justify-between p-4 bg-gray-50 rounded-lg">
+                            <span class="font-semibold text-gray-800">اسم الحساب:</span>
+                            <span class="text-blue-600 font-medium">جبهة وادي هور الديمقراطية</span>
+                        </div>
+                        <div class="flex flex-row-reverse items-center justify-between p-4 bg-gray-50 rounded-lg">
+                            <span class="font-semibold text-gray-800">اسم البنك:</span>
+                            <span class="text-blue-600 font-medium">XXXX XXXX XXXXX XXXXXXX</span>
+                        </div>
+                        <div class="flex flex-row-reverse items-center justify-between p-4 bg-gray-50 rounded-lg">
+                            <span class="font-semibold text-gray-800">رقم الحساب:</span>
+                            <span class="text-blue-600 font-medium font-mono">XXX XXX XXXX XXXX</span>
+                        </div>
+                        <div class="flex flex-row-reverse items-center justify-between p-4 bg-gray-50 rounded-lg">
+                            <span class="font-semibold text-gray-800">الرمز السويفت:</span>
+                            <span class="text-blue-600 font-medium font-mono">XXXXXXXXXX</span>
+                        </div>
+                    </div>
+                    
+                    <button onclick="copyToClipboard('1234 5678 9012 3456')" class="w-full mt-6 bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-200">
+                        نسخ رقم الحساب
+                    </button>
+                </div>
+
+                <!-- Mobile Payment -->
+                <div class="bg-white p-8 rounded-xl shadow-lg">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center ml-4">
+                            <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800">الدفع الإلكتروني</h3>
+                    </div>
+                    <p class="text-gray-600 mb-6">طرق دفع سريعة وآمنة عبر التطبيقات</p>
+                    
+                    <div class="space-y-4">
+                        <!-- Bankak -->
+                        <div class="p-4 border border-gray-200 rounded-lg hover:border-green-300 transition-colors">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">بنكك (Bankak)</h4>
+                                    <p class="text-sm text-gray-600">تحويل فوري عبر التطبيق</p>
+                                </div>
+                                <div class="text-right">
+                                    <p class="font-mono text-green-600">+249 9X XXX XXXX</p>
+                                    <button onclick="copyToClipboard('+249 9X XXX XXXX')" class="text-xs text-blue-600 hover:underline">نسخ</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Zain Cash -->
+                        <div class="p-4 border border-gray-200 rounded-lg hover:border-green-300 transition-colors">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">زين كاش</h4>
+                                    <p class="text-sm text-gray-600">محفظة إلكترونية</p>
+                                </div>
+                                <div class="text-right">
+                                    <p class="font-mono text-green-600">+249 9X XXX XXXX</p>
+                                    <button onclick="copyToClipboard('+249 9X XXX XXXX')" class="text-xs text-blue-600 hover:underline">نسخ</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- MTN Mobile Money -->
+                        <div class="p-4 border border-gray-200 rounded-lg hover:border-green-300 transition-colors">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">MTN Mobile Money</h4>
+                                    <p class="text-sm text-gray-600">خدمة الدفع المحمول</p>
+                                </div>
+                                <div class="text-right">
+                                    <p class="font-mono text-green-600">+249 9X XXX XXXX</p>
+                                    <button onclick="copyToClipboard('+249 9X XXX XXXX')" class="text-xs text-blue-600 hover:underline">نسخ</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="mt-8 text-center">
+                <p class="text-gray-600 font-medium">
+                    شكراً لدعمكم المتواصل! 🙏
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Maps Page Content -->
+    <div id="maps-page" class="flex-grow p-4 md:p-8 hidden">
+        <div class="max-w-6xl mx-auto">
+            <!-- Header Section -->
+            <div class="text-center mb-8">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">خرائط</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    خريطة توضح موقع إقليم دار زغاوة (إقليم بيربي) في السودان
+                </p>
+            </div>
+
+            <!-- Map Container -->
+            <div class="bg-white p-6 rounded-xl shadow-lg">
+                <div id="map" class="rounded-lg overflow-hidden"></div>
+                
+                <!-- Map Info Box -->
+                <div id="infoBox" class="info-box mt-4 p-4 bg-gray-50 rounded-lg">
+                    <p id="infoText" class="text-gray-700"></p>
+                </div>
+            </div>
+
+            <!-- Region Information -->
+            <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Geographic Info -->
+                <div class="bg-white p-6 rounded-xl shadow-lg">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4 flex items-center">
+                        <svg class="w-6 h-6 text-blue-600 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path>
+                        </svg>
+                        المعلومات الجغرافية
+                    </h3>
+                    <div class="space-y-3">
+                        <div class="flex justify-between">
+                            <span class="font-semibold text-gray-700">الموقع:</span>
+                            <span class="text-gray-600">شمال وغرب دارفور، السودان</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="font-semibold text-gray-700">الإحداثيات:</span>
+                            <span class="text-gray-600">13.5°N, 25.5°E</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="font-semibold text-gray-700">المساحة التقريبية:</span>
+                            <span class="text-gray-600">~50,000 كم²</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="font-semibold text-gray-700">الحدود:</span>
+                            <span class="text-gray-600">تشاد، ليبيا، مصر ، السودان </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Population Info -->
+                <div class="bg-white p-6 rounded-xl shadow-lg">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4 flex items-center">
+                        <svg class="w-6 h-6 text-green-600 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"></path>
+                        </svg>
+                        المعلومات السكانية
+                    </h3>
+                    <div class="space-y-3">
+                        <div class="flex justify-between">
+                            <span class="font-semibold text-gray-700">الشعب الرئيسي:</span>
+                            <span class="text-gray-600">الزغاوة</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="font-semibold text-gray-700">اللغة:</span>
+                            <span class="text-gray-600">البريا</span>
+                        </div>
+                        
+                        <div class="flex justify-between">
+                            <span class="font-semibold text-gray-700">التراث:</span>
+                            <span class="text-gray-600">مملكة كانم</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Historical Context -->
+            <div class="mt-8 bg-gradient-to-r from-blue-50 to-green-50 p-8 rounded-xl">
+                <h3 class="text-2xl font-bold text-gray-800 mb-4 text-center">السياق التاريخي</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl font-bold text-blue-600">ق.م</span>
+                        </div>
+                        <h4 class="font-semibold text-gray-800 mb-2">ممالك الزغاوة</h4>
+                        <p class="text-sm text-gray-600">ممالك تاريخية قبل الميلاد</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl font-bold text-green-600">م</span>
+                        </div>
+                        <h4 class="font-semibold text-gray-800 mb-2">مملكة كانم</h4>
+                        <p class="text-sm text-gray-600">مملكة عريقة بعد الميلاد</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl font-bold text-orange-600">الآن</span>
+                        </div>
+                        <h4 class="font-semibold text-gray-800 mb-2">جبهة وادي هور</h4>
+                        <p class="text-sm text-gray-600">حركة ثقافية سياسية</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Disclaimer -->
+            <div class="mt-6 text-center">
+                <p class="text-sm text-gray-500 bg-yellow-50 p-4 rounded-lg border border-yellow-200">
+                    <strong>ملاحظة:</strong> هذه خريطة توضيحية تعتمد على المصادر المتاحة ولا تمثل الحدود الرسمية المعترف بها دولياً.
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer Section -->
+    <footer class="custom-bg-orange">
+        <!-- Social Media Icons (New, Smaller, Rounded Look) -->
+        <div class="container mx-auto py-8 px-4 flex justify-center items-center space-x-4 space-x-reverse">
+            <!-- Facebook -->
+            <a href="#" class="w-12 h-12 flex items-center justify-center rounded-full bg-slate-700 text-white shadow-lg hover:bg-blue-600 transition-colors duration-200">
+                <i class="fab fa-facebook-f text-lg"></i>
+            </a>
+            <!-- Twitter -->
+            <a href="#" class="w-12 h-12 flex items-center justify-center rounded-full bg-slate-700 text-white shadow-lg hover:bg-blue-400 transition-colors duration-200">
+                <i class="fab fa-twitter text-lg"></i>
+            </a>
+            <!-- Youtube -->
+            <a href="#" class="w-12 h-12 flex items-center justify-center rounded-full bg-slate-700 text-white shadow-lg hover:bg-red-600 transition-colors duration-200">
+                <i class="fab fa-youtube text-lg"></i>
+            </a>
+            <!-- Instagram -->
+            <a href="#" class="w-12 h-12 flex items-center justify-center rounded-full bg-slate-700 text-white shadow-lg hover:bg-pink-600 transition-colors duration-200">
+                <i class="fab fa-instagram text-lg"></i>
+            </a>
+        </div>
+        <div class="bg-dark-brown text-white py-4 px-4 text-center text-sm custom-bg-dark-brown">
+            <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
+                <p class="md:order-3">جميع الحقوق محفوظ جبهة وادي هور الديمقراطية 2025</p>
+                <nav class="md:order-2 flex flex-wrap justify-center space-x-4 space-x-reverse mt-2 md:mt-0">
+                    <a href="#main-content" class="footer-link hover:underline">الرئيسية</a>
+                    <a href="#news-page" class="footer-link hover:underline">أخبار</a>
+                    <a href="#statements-page" class="footer-link hover:underline">بيانات</a>
+                    <a href="#articles-page" class="footer-link hover:underline">مقالات</a>
+                    <a href="#interviews-page" class="footer-link hover:underline">حوارات</a>
+                    <a href="#reports-page" class="footer-link hover:underline">تقارير</a>
+                    <a href="#maps-page" class="footer-link hover:underline">خرائط</a>
+                    <a href="#about-us-page" class="footer-link hover:underline">من نحن</a>
+                    <a href="#media-page" class="footer-link hover:underline">وسائط</a>
+                    <a href="#events-page" class="footer-link hover:underline">الفعاليات</a>
+                    <a href="#donations-page" class="footer-link hover:underline">التبرعات</a>
+                    <a href="#join-us-page" class="footer-link hover:underline">انضم إلينا</a>
+                    <a href="#contact-page" class="footer-link hover:underline">إتصل بنا</a>
+                </nav>
+            </div>
+        </div>
+       
+    </footer>
+
+    <!-- JavaScript for page navigation and map functionality -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-2009x7sBvB6xR3W3BfEw3W6E8C2B3vE8G3V3H3l3fB8" crossorigin=""></script>
+    <!-- Supabase client -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <!-- Link to custom JavaScript file -->
+    <script src="js/script.js"></script>
+    <!-- Supabase data loader -->
+    <script src="js/supabase.js"></script>
+</body>
+</html>
