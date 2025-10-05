@@ -20,18 +20,18 @@
 <body class="bg-light-beige min-h-screen flex flex-col custom-bg-light-beige">
 
     <!-- Header Section -->
-    <header class="p-4 flex items-center justify-between flex-wrap md:flex-nowrap custom-bg-orange" style="margin: 0; padding-bottom: 0; border: none;">
-        <div class="flex items-center space-x-4 space-x-reverse">
-            <div class="w-16 h-16 md:w-24 md:h-24 rounded-full overflow-hidden bg-gray-200 flex items-center justify-center shadow-md">
-                <img src="frontend/images/WhatsApp Image 2025-06-28 at 22.28.32_66d64675.jpg" alt="Logo" class="w-full h-full object-cover ">
+    <header class="flex items-center justify-between custom-bg-orange py-6 px-4" style="margin:0; border:none;">
+        <!-- Logo (right, with left margin) -->
+        <div class="flex-shrink-0 w-28 h-28 rounded-full overflow-hidden bg-white flex items-center justify-center shadow-md ml-4">
+            <img src="frontend/images/Logo.jpg" alt="Logo" class="w-full h-full object-contain">
         </div>
-        <h1 class="text-xl md:text-3xl lg:text-4xl font-bold text-center flex-grow p-2">
+        <!-- Title (center) -->
+        <h1 class="flex-1 text-2xl md:text-4xl font-bold text-center mx-4">
             جبهة وادي هور الديمقراطية
         </h1>
-        <div class="flex items-center space-x-4 space-x-reverse">
-            <div class="w-24 h-16 md:w-32 md:h-20 bg-gray-200 flex items-center justify-center rounded-lg shadow-md overflow-hidden">
-                <img src="frontend/images/6b6ebb8a-1df5-4692-aae3-fbe4cd67579c.jpeg" alt="Flag" class="w-full h-full object-cover">
-            </div>
+        <!-- Flag (left, with right margin) -->
+        <div class="flex-shrink-0 w-36 h-24 rounded-lg overflow-hidden bg-white flex items-center justify-center shadow-md mr-4">
+            <img src="frontend/images/Flag.jpeg" alt="Flag" class="w-full h-full object-contain">
         </div>
     </header>
 
@@ -855,9 +855,7 @@
     <footer class="custom-bg-orange">
         <!-- Social Media Icons Section -->
         <div class="container mx-auto py-6 px-4">
-            <div class="text-center mb-4">
-                <h3 class="text-lg font-semibold text-white mb-4">تابعنا على وسائل التواصل الاجتماعي</h3>
-            </div>
+            
             <div class="flex justify-center items-center space-x-3 space-x-reverse flex-wrap gap-3">
                 <!-- Facebook -->
                 <a href="#" class="w-14 h-14 flex items-center justify-center rounded-full bg-slate-700 text-white shadow-lg hover:bg-blue-600 transition-colors duration-200 hover:scale-110">
@@ -881,34 +879,26 @@
         <!-- Main Footer Content -->
         <div class="bg-dark-brown text-white py-6 px-4 custom-bg-dark-brown">
             <div class="container mx-auto">
-                <!-- Navigation Links Section -->
-                <div class="mb-6">
-                    <h4 class="text-lg font-semibold mb-4 text-center">روابط سريعة</h4>
-                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 text-center">
-                        <a href="#main-content" class="footer-link hover:underline text-sm py-2 px-1 rounded hover:bg-gray-700 transition-colors duration-200">الرئيسية</a>
-                        <a href="#news-page" class="footer-link hover:underline text-sm py-2 px-1 rounded hover:bg-gray-700 transition-colors duration-200">أخبار</a>
-                        <a href="#statements-page" class="footer-link hover:underline text-sm py-2 px-1 rounded hover:bg-gray-700 transition-colors duration-200">بيانات</a>
-                        <a href="#articles-page" class="footer-link hover:underline text-sm py-2 px-1 rounded hover:bg-gray-700 transition-colors duration-200">مقالات</a>
-                        <a href="#interviews-page" class="footer-link hover:underline text-sm py-2 px-1 rounded hover:bg-gray-700 transition-colors duration-200">حوارات</a>
-                        <a href="#reports-page" class="footer-link hover:underline text-sm py-2 px-1 rounded hover:bg-gray-700 transition-colors duration-200">تقارير</a>
-                        <a href="#maps-page" class="footer-link hover:underline text-sm py-2 px-1 rounded hover:bg-gray-700 transition-colors duration-200">خرائط</a>
-                        <a href="#about-us-page" class="footer-link hover:underline text-sm py-2 px-1 rounded hover:bg-gray-700 transition-colors duration-200">من نحن</a>
-                        <a href="#media-page" class="footer-link hover:underline text-sm py-2 px-1 rounded hover:bg-gray-700 transition-colors duration-200">وسائط</a>
-                        <a href="#events-page" class="footer-link hover:underline text-sm py-2 px-1 rounded hover:bg-gray-700 transition-colors duration-200">الفعاليات</a>
-                        <a href="#donations-page" class="footer-link hover:underline text-sm py-2 px-1 rounded hover:bg-gray-700 transition-colors duration-200">التبرعات</a>
-                        <a href="#join-us-page" class="footer-link hover:underline text-sm py-2 px-1 rounded hover:bg-gray-700 transition-colors duration-200">انضم إلينا</a>
-                        <a href="#contact-page" class="footer-link hover:underline text-sm py-2 px-1 rounded hover:bg-gray-700 transition-colors duration-200 col-span-2 sm:col-span-1">إتصل بنا</a>
+                <!-- Single-row footer bar: links + copyright -->
+                <div class="border-t border-gray-600 pt-4">
+                    <div class="flex items-center justify-between flex-wrap md:flex-nowrap gap-3">
+                        <div class="flex flex-row-reverse items-center gap-3 flex-wrap md:flex-nowrap">
+                            <a href="#main-content" class="footer-link hover:underline text-sm py-1 px-2 rounded hover:bg-gray-700 transition-colors duration-200">الرئيسية</a>
+                            <a href="#news-page" class="footer-link hover:underline text-sm py-1 px-2 rounded hover:bg-gray-700 transition-colors duration-200">أخبار</a>
+                            <a href="#statements-page" class="footer-link hover:underline text-sm py-1 px-2 rounded hover:bg-gray-700 transition-colors duration-200">بيانات</a>
+                            <a href="#articles-page" class="footer-link hover:underline text-sm py-1 px-2 rounded hover:bg-gray-700 transition-colors duration-200">مقالات</a>
+                            <a href="#interviews-page" class="footer-link hover:underline text-sm py-1 px-2 rounded hover:bg-gray-700 transition-colors duration-200">حوارات</a>
+                            <a href="#reports-page" class="footer-link hover:underline text-sm py-1 px-2 rounded hover:bg-gray-700 transition-colors duration-200">تقارير</a>
+                            <a href="#maps-page" class="footer-link hover:underline text-sm py-1 px-2 rounded hover:bg-gray-700 transition-colors duration-200">خرائط</a>
+                            <a href="#about-us-page" class="footer-link hover:underline text-sm py-1 px-2 rounded hover:bg-gray-700 transition-colors duration-200">من نحن</a>
+                            <a href="#media-page" class="footer-link hover:underline text-sm py-1 px-2 rounded hover:bg-gray-700 transition-colors duration-200">وسائط</a>
+                            <a href="#events-page" class="footer-link hover:underline text-sm py-1 px-2 rounded hover:bg-gray-700 transition-colors duration-200">الفعاليات</a>
+                            <a href="#donations-page" class="footer-link hover:underline text-sm py-1 px-2 rounded hover:bg-gray-700 transition-colors duration-200">التبرعات</a>
+                            <a href="#join-us-page" class="footer-link hover:underline text-sm py-1 px-2 rounded hover:bg-gray-700 transition-colors duration-200">انضم إلينا</a>
+                            <a href="#contact-page" class="footer-link hover:underline text-sm py-1 px-2 rounded hover:bg-gray-700 transition-colors duration-200">إتصل بنا</a>
+                        </div>
+                        <p class="text-sm text-gray-300 whitespace-nowrap">جميع الحقوق محفوظة © جبهة وادي هور الديمقراطية 2025</p>
                     </div>
-                </div>
-                
-                <!-- Copyright Section -->
-                <div class="border-t border-gray-600 pt-4 text-center">
-                    <p class="text-sm text-gray-300">
-                        جميع الحقوق محفوظة © جبهة وادي هور الديمقراطية 2025
-                    </p>
-                    <p class="text-xs text-gray-400 mt-2">
-                        حركة ثقافية سياسية سلمية لإقامة إقليم دار زغاوة
-                    </p>
                 </div>
             </div>
         </div>
