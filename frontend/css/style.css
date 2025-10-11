@@ -312,3 +312,12 @@ th {
 .text-content h4:first-child {
     margin-top: 0;
 }
+
+/* Specific image styling for the meeting image */
+img[src="frontend/images/meeting 1.jpeg"] {
+    width: 100%;
+    height: 10rem; /* Adjusted height */
+    object-fit: cover;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
