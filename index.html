@@ -282,36 +282,367 @@
           <li>النجمة يرمز إلى الحرية والمستقبل والسعي للتميز في العلم والمعرفة.</li>
           <li>الأربعة حروف تعني كلمة باريا (لغة الزغاوى) التي تبرز أهمية لغتنا والعمل على تطويرها.</li>
         </ul>
+        <!-- Disclaimer -->
+            <div class="mt-6 text-center">
+                <p class="text-sm text-gray-500 bg-yellow-50 p-4 rounded-lg border border-yellow-200">
+                    <strong>ملاحظة:</strong> هذه الموقع الالكتروني ما يزال قيد التطوير  والتحديث للصورة النهائية 
+                </p>
+            </div>
         
         </div>
     </main>
 
 
 
-  <div id="news-page" class="flex-grow p-6 md:p-8 hidden">
-    <div class="max-w-6xl mx-auto">
-      <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">ألاخبار</h2>
-      <div id="news-content" class="space-y-6">
-        <!-- Dynamic content will be loaded here from CMS -->
-        <div class="text-center py-12">
-          <div class="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
-          <p class="text-gray-500 mt-4">جاري تحميل الأخبار...</p>
+ <!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<title>الأخبار</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50">
+
+<!-- 📰 NEWS PAGE -->
+<div id="news-page" class="flex-grow p-6 md:p-8">
+  <div class="max-w-5xl mx-auto">
+    <h2 class="text-2xl font-bold text-gray-800 mb-6 text-right">الأخبار</h2>
+
+    <!-- ✅ Grid layout (3 per row) -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+      <!-- 🟩 CARD 1 -->
+      <div class="bg-white rounded-lg shadow p-4 flex flex-col items-end relative">
+        <div class="w-full h-20 bg-gray-100 rounded mb-2 flex items-center justify-center">
+          <span class="text-gray-400 text-base">صورة توضيحية</span>
+        </div>
+        <h3 class="text-sm font-bold text-gray-800 mb-1 text-right leading-tight"
+            data-title="وفاة الملك شريف ادم طاهر رئيس ألادارة الأهلية بدارسويني">
+          وفاة الملك شريف ادم طاهر رئيس ألادارة الأهلية بدارسويني
+        </h3>
+        <p class="text-xs text-gray-700 mb-1 text-right line-clamp-2">
+          بقلوب حزينه ودعنا الملك شريف ادم طاهر رئيس ألادارة الأهلية بدارسويني ...
+        </p>
+        <div class="w-full flex flex-col items-end mb-1">
+          <span class="text-xs text-gray-500"
+                data-publisher="جهة النشر: المركز الإعلامي لجبهة وادي هور">
+            جهة النشر: المركز الإعلامي لجبهة وادي هور
+          </span>
+          <span class="text-xs text-gray-500" data-date="11 / أكتوبر / 2025">11 / أكتوبر / 2025</span>
+        </div>
+        <button class="bg-blue-600 text-white px-4 py-1 rounded text-xs font-semibold hover:bg-blue-700 transition-colors duration-200 self-start"
+                onclick="openModal(this)">المزيد</button>
+        <div
+          class="statement-full text-xs text-gray-700 leading-6 text-right mt-2 hidden">
+          بقلوب حزينه ودعنا الملك شريف ادم طاهر رئيس ألادارة الأهلية بدارسويني ونفر كريم في مجزرة ارتكبتها مليشيات الدعم السريع تقبلهم الله شهداء واسكنهم فسيح جناته وانا لله وانا اليه راجعون.
+_والاسبوع الفائت استقبلنا نبأ استشهاد البطل الجنرال صديق بره والفنان عباس تبن وعدد من الابطا 
+رحلوا جميعا وتركوا سيرتهم العطرة تمشي بين الناس لهم الرحمة والمغفرة ولذويهم الصبر والسلوان
+خالص تعازينا لجميع الأهل بدار سويني وبيري ودارزغاوة وعموم السودان وتشاد ودول المهجر
         </div>
       </div>
+
+      <!-- 🟩 CARD 2 -->
+      <div class="bg-white rounded-lg shadow p-4 flex flex-col items-end relative">
+        <div class="w-full h-20 bg-gray-100 rounded mb-2 flex items-center justify-center">
+          <span class="text-gray-400 text-base">صورة توضيحية</span>
+        </div>
+        <h3 class="text-sm font-bold text-gray-800 mb-1 text-right leading-tight"
+            data-title=" وصول عدد 17 شاحنة مساعدات غذائية عبر معبر الطينة إلى محلية مليط بشمال دارفور   ">
+          وصول قبل قليل عدد 17 شاحنة مساعدات غذائية عبر معبر الطينة إلى محلية مليط بشمال دارفور    
+        </h3>
+        <p class="text-xs text-gray-700 mb-1 text-right line-clamp-2">
+          وصول قبل قليل عدد 17 شاحنة مساعدات غذائية عبر معبر الطينة إلى محلية مليط بشمال دارفور 60 كيلومترات شمال الفاشر ...
+        </p>
+        <div class="w-full flex flex-col items-end mb-1">
+          <span class="text-xs text-gray-500" data-publisher="جهة النشر:  مدير عام الرعاية الاجتماعية ومنسق الشؤون الإنسانية">
+            جهة النشر: جبهة وادي هور الديمقراطية
+          </span>
+          <span class="text-xs text-gray-500" data-date="10 / أكتوبر / 2025">17 / اغسطس / 2025</span>
+        </div>
+        <button class="bg-blue-600 text-white px-4 py-1 rounded text-xs font-semibold hover:bg-blue-700 transition-colors duration-200 self-start"
+                onclick="openModal(this)">المزيد</button>
+        <div class="statement-full text-xs text-gray-700 leading-6 text-right mt-2 hidden">
+            في إطار الجهود المستمرة لتخفيف المعاناة الإنسانية التي يعاني منها النازحون في محلية مليط بشمال دارفور، وصلت قبل قليل مساعدات غذائية تزن 260 طنًا، مقدمة من منظمة برنامج الغذاء العالمي عبر معبر الطينة.
+هذه المساعدات كافية لتلبية الاحتياجات الغذائية لعدد 23,000 مستفيد، وتوزع وفق الخطة للنازحين والأسر المستضيفة في مدينة مليط والعباسي وصياح وأبوقو وأرمل مما يساهم هذه المساعدات في تخفيف العبء الإنساني على النازحين في المحلية بفضل جهود الأجهزة الأمنية المختلفة والقوة المشتركة، تم تأمين مناطق العبور ومساعدة القوافل الإغاثية في الوصول إلى المستهدفين تعمل مفوضية العون الإنساني الاتحادي والولائي وتنسيقية الشؤون الإنسانية بالإقليم ومنسقين العمل الإنساني بمعبر الطينة على تذليل كل الصعاب لضمان وصول المساعدات الإنسانية إلى المستحقين نوجّه رسالة إلى الدعم السريع وجميع الأطراف المتحالفة معاها بالالتزام بمبادئ العمل الإنساني والسماح لقوافل الإغاثة بالدخول إلى مدينة الفاشر لإغاثة المواطنين.
+عبدالباقى محمد حامد
+مدير عام الرعاية الاجتماعية 
+ومنسق الشؤون الإنسانية
+
+        </div>
+      </div>
+
+      <!-- 🟩 CARD 3 -->
+      <div class="bg-white rounded-lg shadow p-4 flex flex-col items-end relative">
+        <div class="w-full h-20 bg-gray-100 rounded mb-2 flex items-center justify-center">
+          <span class="text-gray-400 text-base">صورة توضيحية</span>
+        </div>
+        <h3 class="text-sm font-bold text-gray-800 mb-1 text-right leading-tight"
+            data-title="    إكمال مشروع تشييد أسوار مدرسة كرنوي الابتدائية بنات  ">
+           إكمال مشروع تشييد أسوار مدرسة كرنوي الابتدائية بنات
+        </h3>
+        <p class="text-xs text-gray-700 mb-1 text-right line-clamp-2">
+           *تم إكمال مشروع تشييد أسوار مدرسة كرنوي الابتدائية بنات وتم استلام المشروع من قِبل المهندس بحضور...
+        </p>
+        <div class="w-full flex flex-col items-end mb-1">
+          <span class="text-xs text-gray-500" data-publisher="جهة النشر: جبهة وادي هور الديمقراطية">
+            جهة النشر: جبهة وادي هور الديمقراطية
+          </span>
+          <span class="text-xs text-gray-500" data-date="9 / أكتوبر / 2025">13 / يوليو  / 2025</span>
+        </div>
+        <button class="bg-blue-600 text-white px-4 py-1 rounded text-xs font-semibold hover:bg-blue-700 transition-colors duration-200 self-start"
+                onclick="openModal(this)">المزيد</button>
+        <div class="statement-full text-xs text-gray-700 leading-6 text-right mt-2 hidden">
+          تم إكمال مشروع تشييد أسوار مدرسة كرنوي الابتدائية بنات وتم استلام المشروع من قِبل المهندس بحضور السيد المدير التنفيذي/ورئيس الإدارة الأهلية/ولجنة الأمن بالمدينة/رئيس صندوق تنمية دارقلا بإقليم دار زغاوة وممثلي التعليم ومدراء المدارس واعيان المجتمع المحلي من شباب وشابات أمة الزغاوة
+
+باسمكم جميعآ وباسم اللجنة العليا لتشييد أسوار مدرسة كرنوي الابتدائية بنات ورحمة الله وبركاته
+اولا: نترحم علي كل أرواح الشهدائنا الأبرار وعاجل الشفاء للجرحى والمصابين وعودة حميدة للمفقودين
+في ظل الظروف الاستثنائية الذي تمر بها بلادنا من الأحزان والآلام والجروح والنزوح واللجوء وانعدام الأمن والاستقرار علي مستوي مدن شمال دارفور الا ان الحمدلله مدينتنا من المدن الأمنة والمستقرة وبنعم هذه الاستقرار توافد إليه النازحين الذين اجبرتهم الحرب بالخروج من بيوتهم من كل الولايات والعاصمة ومعسكرات النزوح ومن خلال هذه الكارثة استقبلت كرنوي ابناءها الذين كانوا في المدن واحتضنهم كما تحضن الأم لابنه بكل الحنان قاموا هذه الأبناء بترسيخ مبادي التنمية والوطنية في المساجد ولقاءات الاجتماعية مما انتج خلالها التوافق والتفاف حول تنمية ومن هذه البوابة التنموية تم انجاز مشاريع قيمة وملحة جدآ علي مستوي محلية كرنوي من بينها
+١/تشييد أسوار مدرسة كرنوي الابتدائية بنين في العام الماضي
+٢/عمل آكثر من سبعة سدود اعتراضية علي مستوي المحلية
+٣/واليوم كانت يوم الختامي لتشييد أسوار مدرسة كرنوي الابتدائية بنات
+٤/بجانب اسهامات الشباب بتدشين مكتبة دارقلا الثقافية بالأمس
+كل هذه الانجازات تمت بجهود شعبية بحتة من أبناء دارقلا في الداخل والخارج
+وتحيه خالصة جدا لباشمهندس /ياسين ابكر الضوء سبيل/منفذ مشروع تشييد أسوار مدرسة كرنوي الابتدائية بنات وهذا الرجل بذل كل مالديه من قوة والصبر والعظيمة من أجل انجاز هذا المشروع في وقت وجيز ، تتقدم جبهة وادي هور الدايمقراطية بكل الشكر والتقدير لكل المساهمين من اجل هذا المشروع ونتمنى ان نرى المزيد وسنعمل جاهدين بكل ما نستطيع مع أبناء شعبنا من اجل اقليم دار زغاوة مستقرة مزدهرة.
+        </div>
+      </div>
+
     </div>
   </div>
+</div>
+
+<!-- 🟦 MODAL (popup for "المزيد") -->
+<div id="news-modal" class="hidden fixed inset-0 bg-gray-600 bg-opacity-75 flex items-center justify-center z-50 p-4">
+  <div class="bg-white rounded-lg shadow-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto relative text-right">
+    <button onclick="closeModal()" class="absolute top-3 left-3 text-gray-500 hover:text-gray-800 transition-colors">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round"
+        stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+    </button>
+    <div class="p-6 md:p-8 pt-10">
+      <h3 id="modal-title" class="text-xl font-bold text-gray-800 mb-4"></h3>
+      <p id="modal-publisher" class="text-sm text-gray-500 mb-1"></p>
+      <p id="modal-date" class="text-sm text-gray-500 mb-4"></p>
+      <div id="modal-full-text" class="text-base text-gray-700 leading-relaxed whitespace-pre-line"></div>
+    </div>
+  </div>
+</div>
+
+<!-- 🧠 JavaScript -->
+<script>
+const modal = document.getElementById('news-modal');
+const modalTitle = document.getElementById('modal-title');
+const modalPublisher = document.getElementById('modal-publisher');
+const modalDate = document.getElementById('modal-date');
+const modalFullText = document.getElementById('modal-full-text');
+
+function openModal(btn) {
+  const card = btn.closest('.flex-col');
+  const title = card.querySelector('[data-title]').getAttribute('data-title');
+  const publisher = card.querySelector('[data-publisher]').getAttribute('data-publisher');
+  const date = card.querySelector('[data-date]').getAttribute('data-date');
+  const fullTextDiv = card.querySelector('.statement-full');
+
+  modalTitle.textContent = title;
+  modalPublisher.textContent = publisher;
+  modalDate.textContent = date;
+  modalFullText.textContent = fullTextDiv.innerText;
+
+  modal.classList.remove('hidden');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  modal.classList.add('hidden');
+  document.body.style.overflow = '';
+  modalTitle.textContent = '';
+  modalFullText.textContent = '';
+}
+
+modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !modal.classList.contains('hidden')) closeModal(); });
+</script>
+
+</body>
+</html>
+
   
     <!-- Statements Page Content -->
     <div id="statements-page" class="flex-grow p-6 md:p-8 hidden">
-        <div class="max-w-6xl mx-auto">
-            <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center"> بيانات</h2>
-            <div id="statements-content" class="space-y-6">
-                <!-- Dynamic content will be loaded here from CMS -->
-                <div class="text-center py-12">
-                    <div class="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
-                    <p class="text-gray-500 mt-4">جاري تحميل البيانات...</p>
-                </div>
-            </div>
+        <div class="max-w-5xl mx-auto">
+            
+            
+    
+
+  
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>البيانات</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50">
+
+<div id="statements-page" class="flex-grow p-6 md:p-8">
+  <div class="max-w-5xl mx-auto">
+    <h2 class="text-2xl font-bold text-gray-800 mb-6 text-right">البيانات</h2>
+
+    <!-- ✅ 3 cards in one row -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+      <!-- 🟩 CARD 1 -->
+      <div class="bg-white rounded-lg shadow p-4 flex flex-col items-end relative">
+        <div class="w-full h-20 bg-gray-100 rounded mb-2 flex items-center justify-center">
+          <span class="text-gray-400 text-base">صورة توضيحية</span>
+        </div>
+        <h3 class="text-sm font-bold text-gray-800 mb-1 text-right leading-tight"
+            data-title="مقترح إنشاء كونغرس (برلمان) الزغاوة لإسناد الإدارة الأهلية">
+          مقترح إنشاء كونغرس (برلمان) الزغاوة لإسناد الإدارة الأهلية
+        </h3>
+        <p class="text-xs text-gray-700 mb-1 text-right line-clamp-2">
+          ابتداء نعزي أنفسنا وجميع الاهل في من فقدناهم في أحداث كرنوي السبت الفائت...
+        </p>
+        <div class="w-full flex flex-col items-end mb-1">
+          <span class="text-xs text-gray-500" data-publisher="جهة النشر: جبهة وادي هور الديمقراطية">
+            جهة النشر: جبهة وادي هور الديمقراطية
+          </span>
+          <span class="text-xs text-gray-500" data-date="8 / أكتوبر / 2025">8 / أكتوبر / 2025</span>
+        </div>
+        <button class="bg-blue-600 text-white px-4 py-1 rounded text-xs font-semibold hover:bg-blue-700 transition-colors duration-200 self-start"
+                onclick="openModal(this)">المزيد</button>
+        <div class="statement-full text-xs text-gray-700 leading-6 text-right mt-2 hidden absolute left-0 right-0 top-full bg-white rounded-lg shadow p-3 z-10">
+في البدء نعزي أنفسنا وجميع الأهل بمن فقدناهم في أحداث كرنوي السبت الفائت من الشيوخ والأساتذة والشباب من الطرفين وقبلهم من شباب مسيرة الطينة، لهم الرحمة والمغفرة، جميعهم فقد عزيز وتركونا وسط غيوم من الأحزان، نسأل الله أن يلزم أمة البري جميعًا الصبر وأن يتقبلوا بسعة الصدر أقدار الله. لقد كنا في جبهة وادي هور نستشعر الخطر منذ أحداث الطينة، لذلك ناشدنا ونبهنا أكثر من مرة في الشهر الماضي ولكن مشيئة الله نافذة، نسأل الله أن تكون هذه آخر الابتلاءات القاسية وسطنا.
+ومن خلال متابعتنا للأحداث اتضح لنا أن هناك قصور في الإدارة الأهلية والإلا لكنا تجنبنا الكثير، وهذا ربما ناتج من عدة أسباب:
+
+<li>1. النظم والمستوى الإداري أقل من حجم الأحداث الجديدة المعقدة
+</li>
+<li>2. غياب أغلبية الإدارة الأهلية بدار زغاوة لظروف الوفاة والحرب
+</li>
+<li>3. غياب الدماء الشبابية والعلماء في الإدارة الأهلية
+</li>
+<li>4. أسباب مادية وغيرها لا نعلمها
+</li>
+نظرا لكل ذلك ومنعًا لاستفحال الأحداث ودرءًا واستشعارًا لإشكالات مستقبلًا ومنع وقوعها، خاصة إننا نعيش عالمًا متغيرًا وبلدانًا هشة، متوقع إشكالات كبرى أخرى، وأي مجتمع أو منطقة غير محصنة سوف تقع في الفوضى والأمراض والمجاعات ولا أحد يلتفت لهم، نعتقد أن هناك حاجة لإسناد الإدارة الأهلية بأجسام قوية تحقق المزيد من الفاعلية تجاه قضايا الكيان وتسد النواقص وتبقى سندًا للإدارة الأهلية، وذلك لأن طبيعة ونمط الحياة تتغير وبالتالي طبيعة الأحداث كذلك، مما يتطلب المواكبة والجاهزية. لذا نقترح إنشاء كونغرس الزغاوة أو مجلس حكماء الزغاوة على أن يتم ترشيحهم وفقًا لعملية انتخابية ديمقراطية حرة ونزيهة.
+
+#تعديل
+إن التفاؤل الواسع بالمقترح تضمن آراء الكثير أن اختيار أشخاص غير موفق، ولذلك تم حذف الأسماء المقترحة، وسوف نقوم بدراسة بقية الآراء الرائعة لبلورة المقترح من أجل مستقبل واعد لمنطقتنا.</p>
+        </div>
+      </div>
+
+      <!-- 🟩 CARD 2 -->
+      <div class="bg-white rounded-lg shadow p-4 flex flex-col items-end relative">
+        <div class="w-full h-20 bg-gray-100 rounded mb-2 flex items-center justify-center">
+          <span class="text-gray-400 text-base">صورة توضيحية</span>
+        </div>
+        <h3 class="text-sm font-bold text-gray-800 mb-1 text-right leading-tight"
+            data-title="مناشدة لأبناء الكيان في محلية كرنوي
+">
+          مناشدة لأبناء الكيان في محلية كرنوي
+        </h3>
+        <p class="text-xs text-gray-700 mb-1 text-right line-clamp-2">
+          في هذا الظرف العصيب، وعلى إثر الأحداث المؤسفة التي وقعت في  دارقلا...
+        </p>
+        <div class="w-full flex flex-col items-end mb-1">
+          <span class="text-xs text-gray-500" data-publisher="جهة النشر: جبهة وادي هور الديمقراطية">
+            جهة النشر: جبهة وادي هور الديمقراطية
+          </span>
+          <span class="text-xs text-gray-500" data-date="9 / أكتوبر / 2025">  8/ أكتوبر/ 2025</span>
+        </div>
+        <button class="bg-blue-600 text-white px-4 py-1 rounded text-xs font-semibold hover:bg-blue-700 transition-colors duration-200 self-start"
+                onclick="openModal(this)">المزيد</button>
+        <div class="statement-full text-xs text-gray-700 leading-6 text-right mt-2 hidden absolute left-0 right-0 top-full bg-white rounded-lg shadow p-3 z-10">
+            في هذا الظرف العصيب، وعلى إثر الأحداث المؤسفة التي وقعت في دارقلا – كرنوي، تتوجه تنسيقية روابط أبناء الزغاوة في دول المهجر الممثلين لأبناء الكيان في الخارج وامتدادهم الطبيعي في الداخل بنداء عاجل وصريح إلى جميع أبناء الكيان دون استثناء. إن ما يجري يهدد وحدة الصف، ويعرض الكيان لخطر حقيقي لا يمكن تجاهله. إننا، انطلاقا من مسؤوليتنا التاريخية والأخلاقية تجاه كياننا، نرفض بشدة كل ما من شأنه أن يزرع الفتنة أو يهدد تماسكنا الاجتماعي. وعليه نؤكد بوضوح لا لبس فيه:
+1- نرفض تماما أي شكل من أشكال التصعيد أو استخدام القوة أو التحشيد بأي مبرر كان.
+2- وحدة صف كياننا، فوق كل اعتبار، ولن نسمح لأي طرف أيا كان بالمساس بها أو تقويضها.
+إن دماء أبناء الكيان وأمنهم مسؤولية جماعية لا تقبل المساومة، وأي محاولة لجر الكيان نحو الفوضى مرفوضة بالكامل. إن طريق الحل معروف، وهو طريق العقل والحكمة والمبادرات السلمية الصادقة، لا طريق السلاح والانقسام.لذلك، نناشد جميع أبناء الكيان من الحكماء والعقلاء والإدارات الأهلية و الروابط المجتمعية داخل السودان وخارجه و الحكومة السودانية أن يتحركوا فورا لوقف أي تصعيد، والعمل على رأب الصدع ولم الشمل، وتجنيب الكيان مآلات خطيرة لن تحمد عقباها. إننا نؤمن يقينا بأن قوتنا في وحدتنا، وضعفنا في فرقتنا، وأن حماية الكيان مسؤولية كل فرد من أبنائه، في الداخل والخارج على السواء.فلنعمل على إطفاء نار الفتنة، وصون وحدة وأمن الكيان
+        </div>
+      </div>
+
+      <!-- 🟩 CARD 3 -->
+      <div class="bg-white rounded-lg shadow p-4 flex flex-col items-end relative">
+        <div class="w-full h-20 bg-gray-100 rounded mb-2 flex items-center justify-center">
+          <span class="text-gray-400 text-base">صورة توضيحية</span>
+        </div>
+        <h3 class="text-sm font-bold text-gray-800 mb-1 text-right leading-tight"
+            data-title=" بيان من جبهة وادي هور الديمقراطية بخصوص الاحداث الاخيرة">
+          رسالة شكر وتقدير
+        </h3>
+        <p class="text-xs text-gray-700 mb-1 text-right line-clamp-2">
+          نسأل الله يجنب ألأهل بدارقلا ويلات الفتن و ندعوهم جميعا" بالصبر وسعة الصدر...
+        </p>
+        <div class="w-full flex flex-col items-end mb-1">
+          <span class="text-xs text-gray-500" data-publisher="جهة النشر: جبهة وادي هور الديمقراطية">
+            جهة النشر: جبهة وادي هور الديمقراطية
+          </span>
+          <span class="text-xs text-gray-500" data-date="10 / أكتوبر / 2025">4 / أكتوبر / 2025</span>
+        </div>
+        <button class="bg-blue-600 text-white px-4 py-1 rounded text-xs font-semibold hover:bg-blue-700 transition-colors duration-200 self-start"
+                onclick="openModal(this)">المزيد</button>
+        <div class="statement-full text-xs text-gray-700 leading-6 text-right mt-2 hidden absolute left-0 right-0 top-full bg-white rounded-lg shadow p-3 z-10">
+          نسأل الله يجنب ألأهل بدارقلا ويلات الفتن و ندعوهم جميعا" بالصبر وسعة الصدر .
+من يظن انه يستقوي بالجيش او الدعم السريع ليفرض قانون الغابة والبلطجة وعدم الاستقرار في بيربي علية التفكير جيدا.لأن البري اذا اجتمعوا عليكم ستندمون والتاريخ شاهد ان امه البري تفرض عقوبات قاسية علي المكونات داخلها التي تسبب الارهاق الاجتماعي.
+انه من المؤسف عن يكون من يدعون انهم مكان قيادة المجتمع هم من يخرج من تحتهم اشكالات تنصف استقرار المنطقة وتهدد ألسلام..بدلا" أن يكونوا هم القدوة والادارة الذكية لتجنيب مجتمعهم الشرور.
+نناشد شباب بريبي من كل الأسر خاصة والبري عموما" عدم المساهمه في استمرار او تاجيج هذه الفتنه ولا حتي بالكلمه ناهيك عن الاعتداءات..ان تفكيرنا دائما" انكم متفاءلون معنا في ما نفكر فية ك جبهة وادي هور امامنا مشروع تنمية وادي_هور وتعمير دارزغاوة باسرع وقت ممكن والتحايل علي الازمات لابقاء دارزغاوة مستقرة ومن دون الاستقرار لن يحدث تقدم ف اي شيء.تذكروا دائما" ان الذي ينتظرنا هو بناء مستقبل زاهر لدارزغاوة وجعلها نموذج للاستقرار والوحدة الشعبية والتقدم الاقتصادي ومركزية ثقافية لإنتاج اجمل التراثيات والفنون لارقي كيان اجتماعي ومصدر فخر والهام لكل السودان
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div id="statement-modal" class="hidden fixed inset-0 bg-gray-600 bg-opacity-75 flex items-center justify-center z-50 p-4">
+  <div class="bg-white rounded-lg shadow-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto relative text-right">
+    <button onclick="closeModal()" class="absolute top-3 left-3 text-gray-500 hover:text-gray-800 transition-colors">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+    </button>
+    <div class="p-6 md:p-8 pt-10">
+      <h3 id="modal-title" class="text-xl font-bold text-gray-800 mb-4"></h3>
+      <p id="modal-publisher" class="text-sm text-gray-500 mb-1"></p>
+      <p id="modal-date" class="text-sm text-gray-500 mb-4"></p>
+      <div id="modal-full-text" class="text-base text-gray-700 leading-relaxed whitespace-pre-line"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+const modal = document.getElementById('statement-modal');
+const modalTitle = document.getElementById('modal-title');
+const modalPublisher = document.getElementById('modal-publisher');
+const modalDate = document.getElementById('modal-date');
+const modalFullText = document.getElementById('modal-full-text');
+
+function openModal(btn) {
+  const card = btn.closest('.flex-col');
+  const title = card.querySelector('[data-title]').getAttribute('data-title');
+  const publisher = card.querySelector('[data-publisher]').getAttribute('data-publisher');
+  const date = card.querySelector('[data-date]').getAttribute('data-date');
+  const fullTextDiv = card.querySelector('.statement-full');
+
+  modalTitle.textContent = title;
+  modalPublisher.textContent = publisher;
+  modalDate.textContent = date;
+  modalFullText.textContent = fullTextDiv.innerText;
+
+  modal.classList.remove('hidden');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  modal.classList.add('hidden');
+  document.body.style.overflow = '';
+  modalTitle.textContent = '';
+  modalFullText.textContent = '';
+}
+
+modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !modal.classList.contains('hidden')) closeModal(); });
+</script>
+
+
+
+    
+
+
+
         </div>
     </div>
     
@@ -452,7 +783,7 @@
                 <!-- Dynamic content will be loaded here from CMS -->
                 <div class="text-center py-12">
                     <div class="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
-                    <p class="text-gray-500 mt-4">جاري تحميل الحوارات...</p>
+                    
                 </div>
             </div>
         </div>
@@ -701,7 +1032,7 @@
                         </svg>
                     </div>
                     <h3 class="text-lg font-semibold text-gray-800 mb-2">الدعم الإنساني</h3>
-                    <p class="text-gray-600 text-sm">مساعدة المتضررين والنازحين</p>
+                    <p class="text-gray-600 text-sm">مساعدة المحتاجين والنازحين</p>
                 </div>
                 <div class="bg-white p-6 rounded-xl shadow-lg text-center">
                     <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -779,7 +1110,7 @@
                             <div class="flex items-center justify-between">
                                 <div>
                                     <h4 class="font-semibold text-gray-800">بنكك (Bankak)</h4>
-                                    <p class="text-sm text-gray-600">تحويل فوري عبر التطبيق</p>
+                                    <p class="text-sm text-gray-600">تحويل عبر التطبيق</p>
                                 </div>
                                 <div class="text-right">
                                     <p class="font-mono text-green-600">+249 9X XXX XXXX</p>
@@ -792,8 +1123,8 @@
                         <div class="p-4 border border-gray-200 rounded-lg hover:border-green-300 transition-colors">
                             <div class="flex items-center justify-between">
                                 <div>
-                                    <h4 class="font-semibold text-gray-800">زين كاش</h4>
-                                    <p class="text-sm text-gray-600">محفظة إلكترونية</p>
+                                    <h4 class="font-semibold text-gray-800">تطبيق فوري </h4>
+                                    <p class="text-sm text-gray-600">تحويل عبر التطبيق</p>
                                 </div>
                                 <div class="text-right">
                                     <p class="font-mono text-green-600">+249 9X XXX XXXX</p>
@@ -806,8 +1137,8 @@
                         <div class="p-4 border border-gray-200 rounded-lg hover:border-green-300 transition-colors">
                             <div class="flex items-center justify-between">
                                 <div>
-                                    <h4 class="font-semibold text-gray-800">MTN Mobile Money</h4>
-                                    <p class="text-sm text-gray-600">خدمة الدفع المحمول</p>
+                                    <h4 class="font-semibold text-gray-800">كاشي</h4>
+                                    <p class="text-sm text-gray-600">تحويل عبر التبيق</p>
                                 </div>
                                 <div class="text-right">
                                     <p class="font-mono text-green-600">+249 9X XXX XXXX</p>
@@ -818,6 +1149,14 @@
                     </div>
                 </div>
             </div>
+            <!-- Disclaimer -->
+            <div class="mt-6 text-center">
+                <p class="text-sm text-gray-500 bg-yellow-50 p-4 rounded-lg border border-yellow-200">
+                    <strong>ملاحظة:</strong> سوف يتم تفعيل خيار التبرعات لاحقا اما الان ليس للجبهة اي حساب مصرفي او حساب التحويل عبر تطبيقات التحويلات
+                </p>
+            </div>
+        
+        </div>
 
 
             <div class="mt-8 text-center">
